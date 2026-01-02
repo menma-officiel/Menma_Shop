@@ -5,15 +5,15 @@ $host = getenv('DB_HOST') ?: "aws-1-eu-west-1.pooler.supabase.com";
 $port = getenv('DB_PORT') ?: "6543";
 $dbname = getenv('DB_NAME') ?: "postgres";
 $user = getenv('DB_USER') ?: "postgres.dfrpjeruixdozefzivro";
-$password = getenv('DB_PASSWORD') ?: "q9*TKyBXVE#NXz"; // Mets ton pass ici pour tester en local
+$password = getenv('DB_PASSWORD') ?: "q9*TKyBXVE#NXz";
 
 try {
     // Connexion via l'extension PDO PostgreSQL (obligatoire pour Supabase)
-    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
+    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;sslmode=require";
     $pdo = new PDO($dsn, $user, $password, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
+        PDO::ATTR_EMULATE_PREPARES => true,
     ]);
 } catch (PDOException $e) {
     // En production (Render), on ne montre pas l'erreur détaillée aux clients

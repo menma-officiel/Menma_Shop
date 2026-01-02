@@ -1,0 +1,126 @@
+/* --- TON STYLE UNIFIÉ OPTIMISÉ APP --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Empêche le texte de briller lors du clic sur mobile */
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: #f4f7f6 !important;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* BARRE DE NAVIGATION - Adaptée pour les pouces */
+.nav-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a1a1a;
+    padding: 0 20px;
+    height: 70px; /* Un peu plus haut pour plus de confort */
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.2rem; /* Légèrement réduit pour laisser de la place au menu */
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo span { color: #25D366; }
+
+.menu-admin {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.menu-admin a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.3rem; /* Icônes ou texte bien visibles */
+    padding: 10px; /* Zone de clic plus large */
+    transition: 0.3s;
+}
+
+/* CONTENEURS */
+.admin-wrapper {
+    max-width: 1000px;
+    margin: 20px auto; /* Réduit pour mobile */
+    padding: 0 15px;
+}
+
+.edit-container {
+    background: #ffffff;
+    padding: 20px; /* Plus compact */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e1e4e8;
+    margin-bottom: 20px;
+}
+
+/* FORMULAIRES - Anti-Zoom sur iPhone/Android */
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px; /* CRUCIAL : minimum 16px pour éviter le zoom auto mobile */
+    background: #fff;
+}
+
+/* BOUTONS - Style "App" */
+.btn-save {
+    width: 100%;
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 18px; /* Plus épais pour le tactile */
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.1s active; /* Effet de pression */
+    text-transform: uppercase;
+}
+
+.btn-save:active {
+    transform: scale(0.98); /* Petit effet de clic physique */
+}
+
+/* TABLEAUX RESPONSIVE */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto; /* Permet de swiper le tableau s'il est trop large */
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    h2 { font-size: 1.3rem; }
+}
+
+footer {
+    text-align: center;
+    padding: 30px 10px;
+    background: #1a1a1a;
+    color: #777;
+    font-size: 0.9rem;
+}

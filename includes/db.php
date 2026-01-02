@@ -16,8 +16,7 @@ try {
         PDO::ATTR_EMULATE_PREPARES => true,
     ]);
 } catch (PDOException $e) {
-    // En production (Render), on ne montre pas l'erreur détaillée aux clients
-    error_log("Erreur de connexion : " . $e->getMessage());
-    die("Désolé, une erreur de connexion à la base de données est survenue.");
+    // Cela affichera l'erreur précise (ex: password authentication failed ou timeout)
+    echo "Détails de l'erreur : " . $e->getMessage();
+    exit;
 }
-?>
